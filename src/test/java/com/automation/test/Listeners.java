@@ -1,4 +1,4 @@
-package allClassFilesHere;
+package com.automation.test;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;

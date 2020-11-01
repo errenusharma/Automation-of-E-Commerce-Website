@@ -1,4 +1,4 @@
-package allClassFilesHere;
+package com.automation.test;
 
 import java.util.ArrayList;
 
