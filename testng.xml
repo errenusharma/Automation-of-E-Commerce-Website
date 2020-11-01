@@ -9,14 +9,14 @@
 		<parameter name="Browser" value="Chrome">
 		</parameter>
 		<classes>
-			<class name="allClassFilesHere.FlipkartLogin_verify" />
+			<class name="com.automation.test.FlipkartLogin_verify" />
 		</classes>
 	</test>
 	<test name="Test_Firefox">
 		<parameter name="Browser" value="FireFox">
 		</parameter>
 		<classes>
-			<class name="allClassFilesHere.FlipkartLogin_verify" />
+			<class name="com.automation.test.FlipkartLogin_verify" />
 		</classes>
 	</test>
 </suite> <!-- Suite -->
