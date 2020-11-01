@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="179105" started-at="2020-11-01T16:12:19Z" finished-at="2020-11-01T16:15:18Z">
+    <groups>
+    </groups>
+    <test name="Test_Chrome" duration-ms="89227" started-at="2020-11-01T16:12:19Z" finished-at="2020-11-01T16:13:48Z">
+      <class name="allClassFilesHere.FlipkartLogin_verify">
+        <test-method status="PASS" signature="setup(org.testng.ITestContext)[pri:0, instance:allClassFilesHere.FlipkartLogin_verify@184f6be2]" name="setup" is-config="true" duration-ms="16273" started-at="2020-11-01T11:12:19Z" finished-at="2020-11-01T11:12:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@57adfab0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verify_login()[pri:0, instance:allClassFilesHere.FlipkartLogin_verify@184f6be2]" name="verify_login" duration-ms="71902" started-at="2020-11-01T11:12:35Z" finished-at="2020-11-01T11:13:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_login -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:allClassFilesHere.FlipkartLogin_verify@184f6be2]" name="tearDown" is-config="true" duration-ms="1048" started-at="2020-11-01T11:13:47Z" finished-at="2020-11-01T11:13:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- allClassFilesHere.FlipkartLogin_verify -->
+    </test> <!-- Test_Chrome -->
+    <test name="Test_Firefox" duration-ms="89847" started-at="2020-11-01T16:13:48Z" finished-at="2020-11-01T16:15:18Z">
+      <class name="allClassFilesHere.FlipkartLogin_verify">
+        <test-method status="PASS" signature="setup(org.testng.ITestContext)[pri:0, instance:allClassFilesHere.FlipkartLogin_verify@646d64ab]" name="setup" is-config="true" duration-ms="14490" started-at="2020-11-01T11:13:48Z" finished-at="2020-11-01T11:14:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@1949309d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verify_login()[pri:0, instance:allClassFilesHere.FlipkartLogin_verify@646d64ab]" name="verify_login" duration-ms="71908" started-at="2020-11-01T11:14:03Z" finished-at="2020-11-01T11:15:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_login -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:allClassFilesHere.FlipkartLogin_verify@646d64ab]" name="tearDown" is-config="true" duration-ms="3444" started-at="2020-11-01T11:15:15Z" finished-at="2020-11-01T11:15:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- allClassFilesHere.FlipkartLogin_verify -->
+    </test> <!-- Test_Firefox -->
+  </suite> <!-- Suite -->
+</testng-results>
