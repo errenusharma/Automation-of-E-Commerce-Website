@@ -69,14 +69,14 @@ public class FlipkartLogin_verify {
 		login = new LoginPage(driver);
 
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		// Data Driven Testing - method to fetch different username-password combinations using Map
+		// Data Driven Testing - method to fetch different username-password combinations 
 		for (Integer mapValue : dataMap.keySet()) {
 			List<String> userNmeAndPass = dataMap.get(mapValue);
 			// Call LoginPage methods to pass Username & Password values
 			login.type_username(userNmeAndPass.get(0));
 			login.type_password(userNmeAndPass.get(1));
 			login.type_next();
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("input.promoCode")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("input[id*='usr_name']")));
 			Boolean isPresent = driver.findElements(By.xpath("//div[text()='My Account']")).size() > 0;
 			if (isPresent) {
 				// Verification Point to check if login is successful
@@ -91,7 +91,7 @@ public class FlipkartLogin_verify {
 				driver.findElement(By.xpath("//div[contains(text(),'Logout')]")).click();
 				Thread.sleep(5000);
 			} else {
-				// using screenshot functionality to capture screenshot for failed test case
+				// using screenshot method to capture screenshot for failed test case
 				captureScreenShot(userNmeAndPass.get(0)); 
 				System.out.println("Invalid email or password");
 				driver.navigate().refresh();
@@ -99,8 +99,9 @@ public class FlipkartLogin_verify {
 			
 		}
 	}
-
-	private void captureScreenShot(String userName) {
+	// Standard Method to capture screenshot
+	//Using Try-catch method to handle exception handling 
+	public void captureScreenShot(String userName) {
 
 		File screenShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
