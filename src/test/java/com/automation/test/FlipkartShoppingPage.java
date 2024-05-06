@@ -10,6 +10,8 @@ import org.testng.Assert;
 
 public class FlipkartShoppingPage {
 	WebDriver driver;
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	driver.manage().window().maximize();
 
 	public FlipkartShoppingPage(WebDriver driver) {
 		this.driver = driver;
@@ -23,20 +25,19 @@ public class FlipkartShoppingPage {
 				Actions a = new Actions(driver);
 				WebElement element = driver.findElement(electronics);
 				a.moveToElement(element).build().perform();
-				Thread.sleep(5000);
 				driver.findElement(By.xpath("//a[text()='iPhone SE']")).click();
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 				driver.findElement(By
 						.xpath("//div[contains(text(), 'Apple iPhone SE (Black, 64 GB) (Includes EarPods, Power Adapter)')]"))
 						.click();
-				Thread.sleep(3000);
+				
 				// switch to window 1 from default window
 				ArrayList<String> wins = new ArrayList<String>(driver.getWindowHandles());
 				driver.switchTo().window(wins.get(1));
-				Thread.sleep(3000);
+			
 				// Add to Cart
 				driver.findElement(By.xpath("//button[@class='_2AkmmA _2Npkh4 _2MWPVK']")).click();
-				Thread.sleep(3000);
+				
 				// Verification if item is added to cart
 				String cartPageURL = driver.getCurrentUrl();
 				String ExpCartPageURL = "https://www.flipkart.com/viewcart?otracker=PP_GoToCart";
