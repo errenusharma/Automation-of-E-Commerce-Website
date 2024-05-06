@@ -10,12 +10,13 @@ public class LoginPage {
 		this.driver = driver;
 	}
 
-	// Create Object Repository for Web Elements
-	By login = By.xpath("//a[contains (text(), 'Login')]");
-	By username = By.xpath("//input[@class='_2zrpKA _1dBPDZ']");
-	By password = By.xpath("//input[@class='_2zrpKA _3v41xv _1dBPDZ']");
-	By next = By.xpath("//button[@class='_2AkmmA _1LctnI _7UHT_c']");
+	// Create  Object Repository for Web Elements
+	private By login = By.xpath("//a[contains (text(), 'Login')]");
+	private By username = By.xpath("//input[@class='_2zrpKA _1dBPDZ']");
+	private By password = By.xpath("//input[@class='_2zrpKA _3v41xv _1dBPDZ']");
+	private By next = By.xpath("//button[@class='_2AkmmA _1LctnI _7UHT_c']");
 
+	// public type methods to access private web elements to achieve Data Encapsulation 
 	public By getUsername() {
 		return username;
 	}
