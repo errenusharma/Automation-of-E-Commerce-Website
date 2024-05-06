@@ -17,6 +17,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestContext;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,6 +27,8 @@ public class FlipkartLogin_verify {
 	// create static variables
 	static WebDriver driver;
 	static LoginPage login;
+	//Explicit wait 
+	Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 	Map<Integer, ArrayList<String>> dataMap;
 	String localDir = System.getProperty("user.dir");
 
@@ -65,17 +69,14 @@ public class FlipkartLogin_verify {
 		login = new LoginPage(driver);
 
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		// Iterate over Map to get key values
+		// Data Driven Testing - method to fetch different username-password combinations using Map
 		for (Integer mapValue : dataMap.keySet()) {
 			List<String> userNmeAndPass = dataMap.get(mapValue);
 			// Call LoginPage methods to pass Username & Password values
 			login.type_username(userNmeAndPass.get(0));
-			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 			login.type_password(userNmeAndPass.get(1));
-			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 			login.type_next();
-
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("input.promoCode")));
 			Boolean isPresent = driver.findElements(By.xpath("//div[text()='My Account']")).size() > 0;
 			if (isPresent) {
 				// Verification Point to check if login is successful
@@ -87,16 +88,15 @@ public class FlipkartLogin_verify {
 				// Using Actions class for advanced user interaction like MouseHover
 				Actions a = new Actions(driver);
 				a.moveToElement(button_disp).build().perform();
-				Thread.sleep(5000);
 				driver.findElement(By.xpath("//div[contains(text(),'Logout')]")).click();
 				Thread.sleep(5000);
 			} else {
-				Thread.sleep(2000);
-				captureScreenShot(userNmeAndPass.get(0));
+				// using screenshot functionality to capture screenshot for failed test case
+				captureScreenShot(userNmeAndPass.get(0)); 
 				System.out.println("Invalid email or password");
 				driver.navigate().refresh();
 			}
-			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+			
 		}
 	}
 
