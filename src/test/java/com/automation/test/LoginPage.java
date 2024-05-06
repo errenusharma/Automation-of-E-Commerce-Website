@@ -24,7 +24,7 @@ public class LoginPage {
 	public By getPassword() {
 		return password;
 	}
-	// Create methods for elements
+	// Create action methods for elements
 
 	public void click_login() {
 		driver.findElement(login).click();
